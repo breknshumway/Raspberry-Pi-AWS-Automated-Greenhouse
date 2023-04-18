@@ -1,0 +1,75 @@
+#title {
+  text-align: center;
+  font-size: 4rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+body {
+  background: rgb(91, 162, 66);
+  background: linear-gradient(
+    180deg,
+    rgba(91, 162, 66, 1) 3%,
+    rgba(136, 99, 23, 1) 86%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+#flexContCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#flexCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 2rem;
+}
+
+.infoConts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data {
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border: solid black 0.25rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  width: 7rem;
+  height: 2rem;
+  font-size: 2rem;
+}
+
+.titles {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+#date {
+  font-size: 1.5rem;
+}
+
+#footer {
+  font-size: 2rem;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 500px) {
+  #footer {
+    position: relative;
+    margin-top: 3rem;
+  }
+}

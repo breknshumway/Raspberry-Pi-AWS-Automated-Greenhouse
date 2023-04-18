@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raspberry Pi</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1 id="title">Capstone Greenhouse</h1>
+
+    <div id="flexCont">
+      <div id="dateCont" class="infoConts">
+        <div class="titles">Last Update</div>
+        <div id="date" class="data">{{date}}</div>
+      </div>
+
+      <div id="tempCont" class="infoConts">
+        <div class="titles">Temperature</div>
+        <div id="temp" class="data">{{temp}}°F</div>
+      </div>
+
+      <div id="humidCont" class="infoConts">
+        <div class="titles">Humidity</div>
+        <div id="humid" class="data">{{humid}}%</div>
+      </div>
+
+      <div id="fanCont" class="infoConts">
+        <div class="titles">Fan Status</div>
+        <div id="fan" class="data">{{fan}}</div>
+      </div>
+
+      <div id="heatCont" class="infoConts">
+        <div class="titles">Heater Status</div>
+        <div id="heat" class="data">{{heat}}</div>
+      </div>
+
+      <div id="sprayCont" class="infoConts">
+        <div class="titles">Sprayer Status</div>
+        <div id="spray" class="data">{{spray}}</div>
+      </div>
+      <footer id="footer">By Brek'n Shumway Spring 2023</footer>
+    </div>
+
+    <script>
+      function updateValue() {
+        $.get("/dashboard", function (data) {
+          console.log("Getting Data");
+          $("#date").text(`${data.TimeStamp}`);
+          $("#temp").text(`${data.Temperature}°F`);
+          $("#humid").text(`${data.Humidity}%`);
+          $("#fan").text(`${data.FanStatus}`);
+          $("#heat").text(`${data.HeaterStatus}`);
+          $("#spray").text(`${data.SprayStatus}`);
+        });
+      }
+      setInterval(updateValue, 15000); // Update every 15 seconds
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </body>
+</html>
